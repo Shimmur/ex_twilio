@@ -39,5 +39,5 @@ defmodule ExTwilio.Messaging.PhoneNumber do
         :destroy
       ]
 
-  def parents, do: [:service]
+  def parents, do: [%ExTwilio.Parent{module: ExTwilio.Messaging.Service, key: :service}]
 end

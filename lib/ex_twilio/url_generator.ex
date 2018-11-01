@@ -80,6 +80,9 @@ defmodule ExTwilio.UrlGenerator do
 
   defp add_segments(url, module, id, options) do
     # Append parents
+    IO.puts("inside add_segments/3")
+    IO.inspect(module.parents)
+    IO.inspect(options)
     url = url <> build_segments(:parent, normalize_parents(module.parents), options)
 
     # Append module segment
@@ -160,8 +163,9 @@ defmodule ExTwilio.UrlGenerator do
     parents
     |> Enum.map(fn
       key when is_atom(key) ->
-        %ExTwilio.Parent{module: Module.concat(ExTwilio, camelize(key)), key: key}
-
+        key = %ExTwilio.Parent{module: Module.concat(ExTwilio, camelize(key)), key: key}
+        IO.inspect(key)
+        key
       key ->
         key
     end)
