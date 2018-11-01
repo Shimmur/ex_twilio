@@ -57,6 +57,8 @@ defmodule ExTwilio.UrlGenerator do
 
         ["ExTwilio", "Messaging"| _] ->
           url = add_segments(Config.messaging_api_url(), module, id, options)
+          IO.inspect(url)
+          IO.inspect(options)
           {url, options}
 
         _ ->
