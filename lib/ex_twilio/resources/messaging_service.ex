@@ -5,11 +5,11 @@ defmodule ExTwilio.Messaging.Service do
 
   To see all accounts and subaccounts that your auth_token has access to, run:
 
-      ExTwilio.Service.all
+      ExTwilio.Messaging.Service.all
 
   If you want to find a Service, use `find/1`.
 
-      ExTwilio.Service.find("sid")
+      ExTwilio.Messaging.Service.find("sid")
   """
 
 defstruct sid: nil,
