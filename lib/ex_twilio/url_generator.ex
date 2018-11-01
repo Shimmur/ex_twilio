@@ -57,16 +57,12 @@ defmodule ExTwilio.UrlGenerator do
 
         ["ExTwilio", "Messaging"| _] ->
           url = add_segments(Config.messaging_api_url(), module, id, options)
-          IO.inspect(url)
-          IO.inspect(options)
           {url, options}
 
         _ ->
           # Add Account SID segment if not already present
           options = add_account_to_options(module, options)
           url = add_segments(Config.base_url(), module, id, options) <> ".json"
-          IO.inspect(url)
-          IO.inspect(options)
           {url, options}
       end
 
@@ -79,10 +75,7 @@ defmodule ExTwilio.UrlGenerator do
   end
 
   defp add_segments(url, module, id, options) do
-    # Append parents
-    IO.puts("inside add_segments/3")
-    IO.inspect(module.parents)
-    IO.inspect(options)
+    # Append parent
     url = url <> build_segments(:parent, normalize_parents(module.parents), options)
 
     # Append module segment
@@ -163,9 +156,7 @@ defmodule ExTwilio.UrlGenerator do
     parents
     |> Enum.map(fn
       key when is_atom(key) ->
-        key = %ExTwilio.Parent{module: Module.concat(ExTwilio, camelize(key)), key: key}
-        IO.inspect(key)
-        key
+        %ExTwilio.Parent{module: Module.concat(ExTwilio, camelize(key)), key: key}
       key ->
         key
     end)
