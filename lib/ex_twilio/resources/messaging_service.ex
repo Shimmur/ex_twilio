@@ -1,4 +1,4 @@
-defmodule ExTwilio.MessagingService do
+defmodule ExTwilio.Messaging.Service do
   @moduledoc"""
   Represents a messaging service resource.
   - [https://www.twilio.com/docs/sms/services/api]
