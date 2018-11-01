@@ -56,6 +56,8 @@ defmodule ExTwilio.Config do
 
   def programmable_chat_url, do: "https://chat.twilio.com/v2"
 
+  def messaging_api_url, do: "https://messaging.twilio.com/v1"
+
   def notify_url, do: "https://notify.twilio.com/v1"
 
   @doc """
