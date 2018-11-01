@@ -63,6 +63,8 @@ defmodule ExTwilio.UrlGenerator do
           # Add Account SID segment if not already present
           options = add_account_to_options(module, options)
           url = add_segments(Config.base_url(), module, id, options) <> ".json"
+          IO.inspect(url)
+          IO.inspect(options)
           {url, options}
       end
 
