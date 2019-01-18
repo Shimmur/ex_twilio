@@ -67,8 +67,13 @@ defmodule ExTwilio.Api do
   def create(module, data, options \\ []) do
     data = format_data(data)
 
+    url_options = case options[:sub_account_override] do
+      nil -> options
+      override -> [account: override]
+    end
+
     module
-    |> Url.build_url(nil, options)
+    |> Url.build_url(nil, url_options)
     |> Api.post!(data, auth_header(options))
     |> Parser.parse(module)
   end
