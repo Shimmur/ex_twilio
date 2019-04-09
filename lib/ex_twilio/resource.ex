@@ -56,7 +56,7 @@ defmodule ExTwilio.Resource do
       end
 
       if :find in import_functions do
-        @spec find(String.t() | nil, list) :: Parser.parsed_list_response()
+        @spec find(String.t() | nil, list) :: Parser.parsed_response()
         def find(sid, options \\ []), do: Api.find(__MODULE__, sid, options)
       end
 
