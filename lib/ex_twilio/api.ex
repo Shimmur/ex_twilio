@@ -74,7 +74,7 @@ defmodule ExTwilio.Api do
 
     module
     |> Url.build_url(nil, url_options)
-    |> Api.post!(data, auth_header(options), keepalive: false)
+    |> Api.post!(data, auth_header(options))
     |> Parser.parse(module)
   end
 
